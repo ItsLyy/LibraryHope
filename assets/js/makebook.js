@@ -21,15 +21,13 @@ function makeBook(books) {
   const rightArea = document.createElement("div");
   rightArea.classList.add("right-area");
 
-  const button = document.createElement("button");
-
   //BOTTOMAREA
 
   const bottomArea = document.createElement("div");
   bottomArea.classList.add("bottom-area");
 
   const status = document.createElement("p");
-  status.innerText = `Status : ${setStatus()}`;
+  status.innerText = `Status : ${books.status}`;
   const likeIcon = document.createElement("i");
   likeIcon.classList.add("fa-regular fa-thumbs-up");
   const dislikeIcon = document.createElement("i");
@@ -39,12 +37,26 @@ function makeBook(books) {
 
   if (books.isCompleted) {
     // TOP AREA
-    const undoButton = document.createElement("i");
-    undoButton.classList.add("fa-solid fa-rotate-left");
-    const deleteButton = document.createElement("i");
-    deleteButton.classList.add("fa-solid fa-x");
+    const undoIcon = document.createElement("i");
+    undoIcon.classList.add("fa-solid fa-rotate-left");
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-solid fa-x");
 
-    button.append(undoButton, deleteButton);
+    const undoButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
+
+    undoButton.append(undoIcon);
+    deleteButton.append(deleteIcon);
+
+    undoButton.onclick = () =>{
+      undoBook(books.id);
+    }
+
+    deleteButton.onclick = () =>{
+      deleteButton(books.id);
+    }
+
+    rightArea.append(undoButton, deleteButton)
 
     // BUTTOM AREA
     const likeInnerButton = document.createElement("button");
@@ -72,7 +84,6 @@ function makeBook(books) {
 
   //TOP AREA
   leftArea.append(title, author, year);
-  rightArea.append(button);
   topArea.append(leftArea, rightArea);
 
   //BOTTOM AREA

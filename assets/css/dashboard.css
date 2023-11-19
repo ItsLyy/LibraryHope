@@ -123,6 +123,10 @@
     background-color: var(--first-color);
 }
 
+#dashboard #add-book #addBook button:disabled{
+    opacity: 70%;
+}
+
 #dashboard #add-book #addBook #submitBook{
     background-color: var(--first-color);
     height: 3.15rem;

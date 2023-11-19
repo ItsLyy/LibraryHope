@@ -13,9 +13,6 @@ function getData() {
   const likeIcon = document.getElementById("like-inner-icon");
   const dislikeIcon = document.getElementById("dislike-inner-icon");
 
-  let isLike = null;
-  let isCompleted = false;
-
   return {
     titleInput,
     authorInput,
@@ -26,22 +23,23 @@ function getData() {
     formAddBook,
     likeInnerButton,
     dislikeInnerButton,
-    isLike,
     likeIcon,
     dislikeIcon,
   };
 }
 
+let isLiked = false;
+
 getData().likeButton.onclick = () => {
   getData().likeButton.classList.add("click");
   getData().dislikeButton.classList.remove("click");
-  getData().isLike = true;
+  isLiked = true;
 };
 
 getData().dislikeButton.onclick = () => {
   getData().dislikeButton.classList.add("click");
   getData().likeButton.classList.remove("click");
-  getData().isLike = false;
+  isLiked = false;
 };
 
 getData().likeInnerButton.onclick = () => {
@@ -50,8 +48,8 @@ getData().likeInnerButton.onclick = () => {
     getData().likeIcon.classList.add("fa-solid");
     getData().dislikeIcon.classList.remove("fa-solid");
     getData().dislikeIcon.classList.add("fa-regular");
-    getData().isLike = true;
   }
+  isLiked = true;
 };
 
 getData().dislikeInnerButton.onclick = () => {
@@ -60,16 +58,29 @@ getData().dislikeInnerButton.onclick = () => {
     getData().dislikeIcon.classList.add("fa-solid");
     getData().likeIcon.classList.remove("fa-solid");
     getData().likeIcon.classList.add("fa-regular");
-    getData().isLike = false;
+  }
+  isLiked = false;
+};
+
+getData().statusInput.oninput = () => {
+  const status = getData().statusInput;
+
+  if (status.value === "Complete") {
+    getData().likeButton.removeAttribute("disabled");
+    getData().dislikeButton.removeAttribute("disabled");
+  } else {
+    getData().likeButton.setAttribute("disabled", "");
+    getData().dislikeButton.setAttribute("disabled", "");
   }
 };
 
 function isCompleted() {
-    const status = getData().statusInput;
-    if(status.value === 'Complete'){
-      return true;
-    } else {
-      return false;
-    }
+  const status = getData().statusInput;
+  if (status.value === "Complete") {
+    return true;
+  } else {
+    return false;
   }
-  
+}
+
+
