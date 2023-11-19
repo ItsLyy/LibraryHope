@@ -1,0 +1,130 @@
+:root{
+    --first-color : rgb(237, 125, 49);
+    --second-color : rgb(108, 95, 91);
+    --third-color : rgb(79, 74, 69);
+    --fouth-color : rgb(246, 241, 238);
+}
+
+#dashboard{
+    padding: 1.5rem 0;
+}
+
+#dashboard .container{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    gap: .5rem;
+
+    padding: 3rem 1rem;
+}
+
+#dashboard .container .box{
+    background-color: var(--second-color);
+    width: 30rem;
+    padding: 1rem;
+}
+
+#dashboard .container #add-book{
+    width: 15rem;
+    height: 21rem;
+}
+
+#dashboard .container .box h2{
+    margin: 0 0 1rem;
+}
+
+#dashboard .container .box .inner{
+    width: 100%;
+    height: 8rem;
+    box-sizing: border-box;
+
+    padding: 0 .5rem;
+
+    border: 1px solid var(--fouth-color);
+}
+
+#dashboard .container .box .inner .top-area{
+    border-bottom: 1px solid rgba(246, 241, 238, 0.185);
+    height: 6rem;
+    padding: .2rem 0 0;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#dashboard .container .box .inner .top-area .right-area button{
+    background-color: transparent;
+    border: none;
+    color: var(--fouth-color);
+    cursor: pointer;
+
+    transition: 300ms ease-in-out;
+}
+
+#dashboard .container .box .inner .top-area .right-area button:hover{
+    color: var(--first-color);
+}
+
+#dashboard .container .box .inner .bottom-area{
+    display: flex;
+    justify-content: space-between;
+}
+
+#dashboard .container .box .inner .bottom-area span button{
+    background-color: transparent;
+    color: var(--fouth-color);
+    border: none;
+    cursor: pointer;
+}
+
+#dashboard #add-book #addBook label{
+    display: block;
+}
+
+#dashboard #add-book #addBook input{
+    width: 100%;
+    height: 2rem;
+    box-sizing: border-box;
+
+    padding: .25rem;
+
+    background-color: transparent;
+    border: 1px solid var(--first-color);
+    color: var(--fouth-color);
+}
+
+#dashboard #add-book #addBook select{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--first-color);
+    color: var(--fouth-color);
+    text-align: center;
+    height: 1.5rem;
+}
+
+#dashboard #add-book #addBook select option{
+    background-color: var(--first-color);
+}
+
+#dashboard #add-book #addBook button{
+    width: 49%;
+    height: 3rem;
+    margin: .5rem 0;
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid var(--first-color);
+    color: var(--fouth-color);
+    cursor: pointer;
+}
+
+#dashboard #add-book #addBook button.click{
+    background-color: var(--first-color);
+}
+
+#dashboard #add-book #addBook #submitBook{
+    background-color: var(--first-color);
+    height: 3.15rem;
+    cursor: pointer;
+}

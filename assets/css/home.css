@@ -1,0 +1,84 @@
+:root {
+  --first-color: rgb(237, 125, 49);
+  --second-color: rgb(108, 95, 91);
+  --third-color: rgb(79, 74, 69);
+  --fouth-color: rgb(246, 241, 238);
+}
+
+#home {
+  position: relative;
+  background: linear-gradient(70deg, rgb(79, 74, 69) 50%, rgba(246, 241, 238, 0) 1%), url(https://uiii.ac.id/assets/images/1636690539-alfons-morales-YLSwjSy7stw-unsplash-2.jpg);
+  background-clip: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#home .wrapper{
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+#home .wrapper .hero{
+    margin: 0 0 0 5rem;
+}
+
+#home .wrapper .hero h2{
+    font-size: .75em;
+    font-weight: 200;
+}
+
+#home .wrapper .hero h1{
+    font-size: 3em;
+    line-height: 1;
+}
+
+#home .wrapper .hero a{
+    display: inline-block;
+    margin: 2rem 0 0 0;
+    padding: .5rem;
+    
+    color: var(--fouth-color);
+    
+    border: 1px solid var(--fouth-color);
+    border-radius: 6px;
+
+    transition: 200ms ease-in-out;
+}
+
+#home .wrapper .hero a:hover{
+    background-color: var(--fouth-color);
+    color: var(--third-color);
+}
+
+#home .wrapper .preview{
+    display: flex;
+    margin: 4rem 0 0 5rem;
+    width: fit-content;
+    gap: .5rem;
+
+    position: absolute;
+    bottom: 3em;
+}
+
+#home .wrapper .preview .box{
+    padding: .5rem;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px -8px;
+    border: 1px solid rgba(246, 241, 238, 0.329);
+
+    font-size: .75em;
+    color: var(--fouth-color);
+}
+
+#home .wrapper .preview .box h2{
+    font-weight: 400;
+    line-height: 1;
+}

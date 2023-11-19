@@ -1,0 +1,89 @@
+:root{
+    --first-color : rgb(237, 125, 49);
+    --second-color : rgb(108, 95, 91);
+    --third-color : rgb(79, 74, 69);
+    --fouth-color : rgb(246, 241, 238);
+}
+
+header{
+    width: 100%;
+    height: 8rem;
+    box-sizing: border-box;
+
+    z-index: 99999;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background-color: rgba(108, 95, 91, 0.39);
+    backdrop-filter: blur(5px);
+
+    transition: 200ms linear;
+}
+
+header.fixed{
+    position: fixed;
+    background-color: var(--second-color);
+    height: 4rem;
+}
+
+nav{
+    width: 100%;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navbar-logo{
+    margin: .75rem;
+    font-size: 1.4em;
+    transform: scaleY(1);
+    transform-origin: top;
+
+    transition: 200ms linear;
+}
+
+.navbar-logo.scroll{
+    transform: scaleY(0);
+    opacity: 0;
+    overflow: hidden;
+    margin: -1.3rem;
+}
+
+.navbar-logo span{
+    color: var(--first-color);
+}
+
+.navbar-menu ul li{
+    display: inline-block;
+    margin: .5rem 1rem;
+    overflow: hidden;
+}
+
+.navbar-menu ul li a{
+    color: var(--fouth-color);
+    
+    transition: 200ms linear;
+}
+
+.navbar-menu ul li a::after{
+    content: '';
+    display: block;
+    border-bottom: 3px solid rgb(255, 142, 66);
+    padding: .28rem;
+    
+    transform: scaleX(0);
+    transition: 200ms linear;
+}
+
+.navbar-menu ul li a:hover{
+    color: rgb(255, 142, 66);
+    text-shadow: 0 0 1.5px rgb(253, 160, 98);
+}
+
+.navbar-menu ul li a:hover::after{
+    transform: scaleX(1.2);
+}
