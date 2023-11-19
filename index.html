@@ -51,8 +51,11 @@
       </section>
       <section id="dashboard">
         <div class="container">
-          <div class="box" id="incompleted">
+          <div class="box">
             <h2>Incompleted</h2>
+            <div id="incompleted">
+
+            </div>
             <div class="inner">
               <div class="top-area">
                 <div class="left-area">
@@ -62,7 +65,7 @@
                 </div>
                 <div class="right-area">
                   <button type="button"><i class="fa-brands fa-readme"></i></button>
-                  <button type="button" id="done"><i class="fa-solid fa-check"></i></button>
+                  <button type="button"><i class="fa-solid fa-check"></i></button>
                 </div>
               </div>
               <div class="bottom-area">
@@ -78,24 +81,10 @@
               </div>
             </div>
           </div>
-          <div class="box" id="completed">
+          <div class="box">
             <h2>Completed</h2>
-            <div class="inner">
-              <div class="top-area">
-                <div class="left-area">
-                  <p class="title">Title &nbsp; &nbsp; &nbsp; : wwwwwwwwwww</p>
-                  <p class="author">Author&nbsp; : wwwwwwwwww</p>
-                  <p class="time">Year &nbsp; &nbsp; &nbsp;: wwwwwww</p>
-                </div>
-                <div class="right-area">
-                  <button type="button" id="done"><i class="fa-solid fa-rotate-left"></i></button>
-                  <button type="button" id="done"><i class="fa-solid fa-x"></i></button>
-                </div>
-              </div>
-              <div class="bottom-area">
-                <p>Status :</p>
-                <span><i class="fa-regular fa-thumbs-up"></i></span>
-              </div>
+            <div id="completed">
+
             </div>
           </div>
           <div class="box" id="add-book">
@@ -105,7 +94,7 @@
               <label for="author">Author*</label>
               <input type="text" name="author" id="authorInput" required />
               <label for="year">Year*</label>
-              <input type="number" name="year" id="yearinput" required />
+              <input type="number" name="year" id="yearInput" required />
               <label for="status">Status*</label>
               <select id="statusInput" name="status">
                 <option>Complete</option>

@@ -1,4 +1,5 @@
 const bookArr = [];
+let isRead = false;
 
 function addBook() {
   const titleInput = getData().titleInput.value;
@@ -7,6 +8,7 @@ function addBook() {
   const statusInput = getData().statusInput.value;
   const completed = isCompleted();
   const islikes = isLiked;
+  const isreads = isRead;
 
   const genereteID = genereteId();
   const bookObject = addBookObject(
@@ -16,7 +18,8 @@ function addBook() {
     yearInput,
     statusInput,
     completed,
-    islikes
+    islikes,
+    isreads,
   );
 
   bookArr.push(bookObject);
@@ -27,7 +30,7 @@ function genereteId() {
   return +new Date();
 }
 
-function addBookObject(id, title, author, year, status, isCompleted, isLiked) {
+function addBookObject(id, title, author, year, status, isCompleted, isLiked,isRead) {
   return {
     id,
     title,
@@ -35,6 +38,8 @@ function addBookObject(id, title, author, year, status, isCompleted, isLiked) {
     year,
     status,
     isCompleted,
+    isLiked,
+    isRead,
   };
 }
 
@@ -52,18 +57,13 @@ function ongoingBook(id) {
 
   if (theBook === null) return;
 
-  let isRead = true;
-  const readMe = document.querySelector('.fa-readme');
-
-  if (isRead) {
-    theBook.status = "Ongoing";
-    readMe.style.color = 'white';
-    isRead = false;
-} else {
-    readMe.style.color = 'grey';
-    theBook.status = 'Incomplete';
-    isRead = true;
+  if (!theBook.isRead) {
+    theBook.isRead = true;
+  } else {
+    theBook.isRead = false;
   }
+  console.log('wee');
+  document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
 function undoBook(id) {
@@ -81,6 +81,22 @@ function deleteBook(id) {
   if (theBookIndex === -1) return null;
 
   bookArr.splice(theBookIndex, 1);
+  document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+function bookStatus(id) {
+  const theBook = findBook(id);
+
+  if (theBook === null) return;
+
+  if (theBook.isCompleted) {
+    return "Completed";
+  } else if (theBook.isRead) {
+    return "Ongoing";
+  } else if (!theBook.isCompleted) {
+    return "Incompleted";
+  } 
+
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 

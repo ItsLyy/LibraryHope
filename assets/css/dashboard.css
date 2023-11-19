@@ -22,7 +22,7 @@
 
 #dashboard .container .box{
     background-color: var(--second-color);
-    width: 30rem;
+    width: 50rem;
     padding: 1rem;
 }
 
@@ -43,6 +43,7 @@
     padding: 0 .5rem;
 
     border: 1px solid var(--fouth-color);
+    margin: .5rem 0;
 }
 
 #dashboard .container .box .inner .top-area{
@@ -59,6 +60,9 @@
     border: none;
     color: var(--fouth-color);
     cursor: pointer;
+
+    margin: .2rem;
+    font-size: 1.05em;;
 
     transition: 300ms ease-in-out;
 }
@@ -77,6 +81,9 @@
     color: var(--fouth-color);
     border: none;
     cursor: pointer;
+
+    font-size: 1.01em;
+    margin: 0 .2rem;
 }
 
 #dashboard #add-book #addBook label{
