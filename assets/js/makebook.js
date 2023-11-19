@@ -26,8 +26,18 @@ function makeBook(books) {
   const bottomArea = document.createElement("div");
   bottomArea.classList.add("bottom-area");
 
+  const completeValue = document.createElement("span");
+  completeValue.innerText = bookStatus(books.id);
+  if (bookStatus(books.id) === "Completed") {
+    completeValue.style.color = "lightgreen";
+  } else if (bookStatus(books.id) === "Incompleted") {
+    completeValue.style.color = "red";
+  } else {
+    completeValue.style.color = "orange";
+  }
   const status = document.createElement("p");
-  status.innerText = `Status : ${bookStatus(books.id)}`;
+  status.innerText = `Status : `;
+  status.append(completeValue);
   const likeIcon = document.createElement("i");
   likeIcon.classList.add("fa-regular");
   likeIcon.classList.add("fa-thumbs-up");
@@ -46,24 +56,24 @@ function makeBook(books) {
     deleteIcon.classList.add("fa-solid");
     deleteIcon.classList.add("fa-x");
 
-    const undoButton = document.createElement('button');
-    const deleteButton = document.createElement('button');
+    const undoButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
 
     undoButton.append(undoIcon);
     deleteButton.append(deleteIcon);
 
-    undoButton.onclick = () =>{
+    undoButton.onclick = () => {
       undoBook(books.id);
-    }
+    };
 
-    deleteButton.onclick = () =>{
+    deleteButton.onclick = () => {
       deleteBook(books.id);
-    }
+    };
 
-    rightArea.append(undoButton, deleteButton)
+    rightArea.append(undoButton, deleteButton);
 
     // BUTTOM AREA
-    
+
     if (books.isLiked) {
       likeDislike.append(likeIcon);
     } else {
@@ -78,36 +88,56 @@ function makeBook(books) {
     completeIcon.classList.add("fa-solid");
     completeIcon.classList.add("fa-check");
 
-    const ongoingButton = document.createElement('button');
-    ongoingButton.setAttribute('type', 'button')
+    const ongoingButton = document.createElement("button");
+    ongoingButton.setAttribute("type", "button");
     ongoingButton.append(ongoingIcon);
-    const completeButton = document.createElement('button');
-    completeButton.setAttribute('type', 'button')
+    const completeButton = document.createElement("button");
+    completeButton.setAttribute("type", "button");
     completeButton.append(completeIcon);
 
-    ongoingButton.onclick = () =>{
+    ongoingButton.onclick = () => {
       ongoingBook(books.id);
-      if(!books.isRead){
-        ongoingIcon.style.color = 'rgb(237, 125, 49';
-      }else{
+      if (bookStatus(books.id) === "Ongoing") {
+        ongoingIcon.style.color = "orange";
+      } else {
         ongoingIcon.style.color = "white";
       }
-    }
+    };
 
     completeButton.onclick = () => {
       completeBook(books.id);
-    }
+    };
 
     rightArea.append(ongoingButton, completeButton);
-    
+
     // BOTTOM AREA
     const likeInnerButton = document.createElement("button");
-    likeInnerButton.setAttribute('id', 'like-inner');
+    likeInnerButton.setAttribute("id", "like-inner");
     likeInnerButton.append(likeIcon);
-    
+
     const dislikeInnerButton = document.createElement("button");
-    dislikeInnerButton.setAttribute('id', 'dislike-inner');
+    dislikeInnerButton.setAttribute("id", "dislike-inner");
     dislikeInnerButton.append(dislikeIcon);
+
+    likeInnerButton.onclick = () => {
+      if (likeIcon.classList.contains("fa-regular")) {
+        likeIcon.classList.remove("fa-regular");
+        likeIcon.classList.add("fa-solid");
+        dislikeIcon.classList.remove("fa-solid");
+        dislikeIcon.classList.add("fa-regular");
+      }
+      likeBook(books.id);
+    };
+
+    dislikeInnerButton.onclick = () => {
+      if (dislikeIcon.classList.contains("fa-regular")) {
+        dislikeIcon.classList.remove("fa-regular");
+        dislikeIcon.classList.add("fa-solid");
+        likeIcon.classList.remove("fa-solid");
+        likeIcon.classList.add("fa-regular");
+      }
+      dislikeBook(books.id);
+    };
 
     likeDislike.append(likeInnerButton, dislikeInnerButton);
   }

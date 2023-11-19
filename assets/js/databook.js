@@ -19,18 +19,28 @@ function addBook() {
     statusInput,
     completed,
     islikes,
-    isreads,
+    isreads
   );
 
   bookArr.push(bookObject);
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 }
 
 function genereteId() {
   return +new Date();
 }
 
-function addBookObject(id, title, author, year, status, isCompleted, isLiked,isRead) {
+function addBookObject(
+  id,
+  title,
+  author,
+  year,
+  status,
+  isCompleted,
+  isLiked,
+  isRead
+) {
   return {
     id,
     title,
@@ -50,6 +60,7 @@ function completeBook(id) {
 
   theBook.isCompleted = true;
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 }
 
 function ongoingBook(id) {
@@ -62,8 +73,9 @@ function ongoingBook(id) {
   } else {
     theBook.isRead = false;
   }
-  console.log('wee');
+  console.log("wee");
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 }
 
 function undoBook(id) {
@@ -73,6 +85,7 @@ function undoBook(id) {
 
   theBook.isCompleted = false;
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 }
 
 function deleteBook(id) {
@@ -82,6 +95,25 @@ function deleteBook(id) {
 
   bookArr.splice(theBookIndex, 1);
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
+}
+
+function likeBook(id) {
+  const theBook = findBook(id);
+
+  if (theBook === null) return;
+
+  theBook.isLiked = true;
+  saveData();
+}
+
+function dislikeBook(id) {
+  const theBook = findBook(id);
+
+  if (theBook === null) return;
+
+  theBook.isLiked = false;
+  saveData();
 }
 
 function bookStatus(id) {
@@ -95,9 +127,9 @@ function bookStatus(id) {
     return "Ongoing";
   } else if (!theBook.isCompleted) {
     return "Incompleted";
-  } 
-
+  }
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 }
 
 function findBook(id) {

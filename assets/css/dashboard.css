@@ -1,141 +1,187 @@
-:root{
-    --first-color : rgb(237, 125, 49);
-    --second-color : rgb(108, 95, 91);
-    --third-color : rgb(79, 74, 69);
-    --fouth-color : rgb(246, 241, 238);
+:root {
+  --first-color: rgb(237, 125, 49);
+  --second-color: rgb(108, 95, 91);
+  --third-color: rgb(79, 74, 69);
+  --fouth-color: rgb(246, 241, 238);
 }
 
-#dashboard{
-    padding: 1.5rem 0;
+#dashboard {
+  padding: 1.5rem 0;
 }
 
-#dashboard .container{
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+#dashboard .container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 
-    display: flex;
-    gap: .5rem;
+  display: flex;
+  gap: 0.5rem;
 
-    padding: 3rem 1rem;
+  padding: 3rem 1rem;
 }
 
-#dashboard .container .box{
-    background-color: var(--second-color);
-    width: 50rem;
-    padding: 1rem;
+#dashboard .container .box {
+  background-color: var(--second-color);
+  width: 48rem;
+  height: 98%;
+  padding: 1rem;
+
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
-#dashboard .container #add-book{
-    width: 15rem;
-    height: 21rem;
+#dashboard .container #add-book {
+  width: 15rem;
+  height: 21rem;
 }
 
-#dashboard .container .box h2{
-    margin: 0 0 1rem;
+#dashboard .container .box h2 {
+  margin: 0 0 1rem;
 }
 
-#dashboard .container .box .inner{
-    width: 100%;
-    height: 8rem;
-    box-sizing: border-box;
+#dashboard .container .box .inner {
+  width: 100%;
+  height: 8rem;
+  box-sizing: border-box;
 
-    padding: 0 .5rem;
+  padding: 0 0.5rem;
 
-    border: 1px solid var(--fouth-color);
-    margin: .5rem 0;
+  border: 1px solid var(--fouth-color);
+  margin: 0.5rem 0;
 }
 
-#dashboard .container .box .inner .top-area{
-    border-bottom: 1px solid rgba(246, 241, 238, 0.185);
-    height: 6rem;
-    padding: .2rem 0 0;
+#dashboard .container .box .inner .top-area {
+  border-bottom: 1px solid rgba(246, 241, 238, 0.185);
+  height: 6rem;
+  padding: 0.2rem 0 0;
 
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-#dashboard .container .box .inner .top-area .right-area button{
-    background-color: transparent;
-    border: none;
-    color: var(--fouth-color);
-    cursor: pointer;
+#dashboard .container .box .inner .top-area .right-area button {
+  background-color: transparent;
+  border: none;
+  color: var(--fouth-color);
+  cursor: pointer;
 
-    margin: .2rem;
-    font-size: 1.05em;;
+  margin: 0.2rem;
+  font-size: 1.05em;
 
-    transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
-#dashboard .container .box .inner .top-area .right-area button:hover{
-    color: var(--first-color);
+#dashboard .container .box .inner .top-area .right-area button:hover {
+  color: var(--first-color);
 }
 
-#dashboard .container .box .inner .bottom-area{
-    display: flex;
-    justify-content: space-between;
+#dashboard .container .box .inner .bottom-area {
+  display: flex;
+  justify-content: space-between;
 }
 
-#dashboard .container .box .inner .bottom-area span button{
-    background-color: transparent;
-    color: var(--fouth-color);
-    border: none;
-    cursor: pointer;
+#dashboard .container .box .inner .bottom-area span button {
+  background-color: transparent;
+  color: var(--fouth-color);
+  border: none;
+  cursor: pointer;
 
-    font-size: 1.01em;
-    margin: 0 .2rem;
+  font-size: 1.01em;
+  margin: 0 0.2rem;
 }
 
-#dashboard #add-book #addBook label{
-    display: block;
+#dashboard #add-book #addBook label {
+  display: block;
 }
 
-#dashboard #add-book #addBook input{
-    width: 100%;
-    height: 2rem;
-    box-sizing: border-box;
+#dashboard #add-book #addBook input {
+  width: 100%;
+  height: 2rem;
+  box-sizing: border-box;
 
-    padding: .25rem;
+  padding: 0.25rem;
 
-    background-color: transparent;
-    border: 1px solid var(--first-color);
-    color: var(--fouth-color);
+  background-color: transparent;
+  border: 1px solid var(--first-color);
+  color: var(--fouth-color);
 }
 
-#dashboard #add-book #addBook select{
-    width: 100%;
-    background-color: transparent;
-    border: 1px solid var(--first-color);
-    color: var(--fouth-color);
-    text-align: center;
-    height: 1.5rem;
+#dashboard #add-book #addBook select {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--first-color);
+  color: var(--fouth-color);
+  text-align: center;
+  height: 1.5rem;
 }
 
-#dashboard #add-book #addBook select option{
-    background-color: var(--first-color);
+#dashboard #add-book #addBook select option {
+  background-color: var(--first-color);
 }
 
-#dashboard #add-book #addBook button{
-    width: 49%;
-    height: 3rem;
-    margin: .5rem 0;
-    display: inline-block;
-    background-color: transparent;
-    border: 1px solid var(--first-color);
-    color: var(--fouth-color);
-    cursor: pointer;
+#dashboard #add-book #addBook button {
+  width: 49%;
+  height: 3rem;
+  margin: 0.5rem 0;
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid var(--first-color);
+  color: var(--fouth-color);
+  cursor: pointer;
 }
 
-#dashboard #add-book #addBook button.click{
-    background-color: var(--first-color);
+#dashboard #add-book #addBook button.click {
+  background-color: var(--first-color);
 }
 
-#dashboard #add-book #addBook button:disabled{
-    opacity: 70%;
+#dashboard #add-book #addBook button:disabled {
+  opacity: 70%;
 }
 
-#dashboard #add-book #addBook #submitBook{
-    background-color: var(--first-color);
-    height: 3.15rem;
-    cursor: pointer;
+#dashboard #add-book #addBook #submitBook {
+  background-color: var(--first-color);
+  height: 3.15rem;
+  cursor: pointer;
 }
+
+@media (max-width: 1720px){
+    #dashboard .container .box {
+        width: 35%;
+      }
+}
+
+@media (max-width: 850px) {
+  #dashboard {
+    height: 170vh;
+  }
+  #dashboard .container {
+    flex-direction: column;
+  }
+
+  #dashboard .container .box {
+    width: 95%;
+    height: 30%;
+  }
+
+  #dashboard .container #add-book {
+    width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+    #dashboard {
+      height: 145vh;
+    }
+    #dashboard .container {
+      flex-direction: column;
+    }
+  
+    #dashboard .container .box {
+      width: 90%;
+      height: 25%;
+    }
+  
+    #dashboard .container #add-book {
+      width: 90%;
+    }
+  }

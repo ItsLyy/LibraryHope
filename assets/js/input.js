@@ -42,26 +42,6 @@ getData().dislikeButton.onclick = () => {
   isLiked = false;
 };
 
-getData().likeInnerButton.onclick = () => {
-  if (getData().likeIcon.classList.contains("fa-regular")) {
-    getData().likeIcon.classList.remove("fa-regular");
-    getData().likeIcon.classList.add("fa-solid");
-    getData().dislikeIcon.classList.remove("fa-solid");
-    getData().dislikeIcon.classList.add("fa-regular");
-  }
-  isLiked = true;
-};
-
-getData().dislikeInnerButton.onclick = () => {
-  if (getData().dislikeIcon.classList.contains("fa-regular")) {
-    getData().dislikeIcon.classList.remove("fa-regular");
-    getData().dislikeIcon.classList.add("fa-solid");
-    getData().likeIcon.classList.remove("fa-solid");
-    getData().likeIcon.classList.add("fa-regular");
-  }
-  isLiked = false;
-};
-
 getData().statusInput.oninput = () => {
   const status = getData().statusInput;
 
@@ -83,3 +63,28 @@ function isCompleted() {
   }
 }
 
+function saveData(){
+  if(storageExist()){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookArr));
+  }
+}
+
+function loadData(){
+  const bookItems = localStorage.getItem(STORAGE_KEY);
+  const bookValue = JSON.parse(bookItems);
+
+  if(bookValue !== null){
+    for(const item of bookValue){
+      bookArr.push(item);
+    }
+  }
+  document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+function storageExist(){
+  if(typeof Storage === undefined){
+    alert('You dont have Local or Session Storage feature');
+    return false;
+  }
+  return true;
+}
