@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener(RENDER_EVENT, function () {
   const completedContainer = document.getElementById("completed");
   const incompletedContainer = document.getElementById("incompleted");
-  const totalBooks = document.getElementById('total-books');
+  const totalBooks = document.getElementById("total-books");
   totalBooks.innerText = bookArr.length;
 
   completedContainer.innerHTML = "";
@@ -29,4 +29,18 @@ document.addEventListener(RENDER_EVENT, function () {
     }
   }
 
+  const searchInput = document.getElementById("search");
+  const searchButton = document.getElementById("search-btn");
+  const allInner = document.querySelectorAll(".inner");
+
+  searchButton.onclick = () => {
+    for (const booksValueIndex in bookArr) {
+      allInner[booksValueIndex].classList.add("hidden");
+      if (searchInput.value === bookArr[booksValueIndex].title) {
+        allInner[booksValueIndex].classList.remove("hidden");
+      } else if (searchInput.value === "") {
+        allInner[booksValueIndex].classList.remove("hidden");
+      }
+    }
+  };
 });

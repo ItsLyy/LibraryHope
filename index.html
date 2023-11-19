@@ -59,30 +59,36 @@
 
             </div>
           </div>
-          <div class="box" id="add-book">
-            <form action="addBook" id="addBook">
-              <label for="title">Title*</label>
-              <input type="text" name="title" id="titleInput" required />
-              <label for="author">Author*</label>
-              <input type="text" name="author" id="authorInput" required />
-              <label for="year">Year*</label>
-              <input type="number" name="year" id="yearInput" required />
-              <label for="status">Status*</label>
-              <select id="statusInput" name="status">
-                <option>Complete</option>
-                <option>Incomplete</option>
-                <option>Ongoing</option>
-              </select>
-              <div class="likebtn">
-                <button id="like" type="button">
-                  <i class="fa-regular fa-thumbs-up"></i>
-                </button>
-                <button id="dislike" type="button">
-                  <i class="fa-regular fa-thumbs-down"></i>
-                </button>
-              </div>
-              <input type="submit" value="Add Book" id="submitBook" />
-            </form>
+          <div>
+            <div class="box" id="add-book">
+              <form action="addBook" id="addBook">
+                <label for="title">Title*</label>
+                <input type="text" name="title" id="titleInput" required />
+                <label for="author">Author*</label>
+                <input type="text" name="author" id="authorInput" required />
+                <label for="year">Year*</label>
+                <input type="number" name="year" id="yearInput" required />
+                <label for="status">Status*</label>
+                <select id="statusInput" name="status">
+                  <option>Complete</option>
+                  <option>Incomplete</option>
+                  <option>Ongoing</option>
+                </select>
+                <div class="likebtn">
+                  <button id="like" type="button">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                  </button>
+                  <button id="dislike" type="button">
+                    <i class="fa-regular fa-thumbs-down"></i>
+                  </button>
+                </div>
+                <input type="submit" value="Add Book" id="submitBook" />
+              </form>
+            </div>
+            <div class="box" id="search-box">
+              <input type="text" name="search" id="search" placeholder="Title">
+              <button type="button" id="search-btn">Seach</button>
+            </div>
           </div>
         </div>
       </section>

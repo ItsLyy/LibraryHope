@@ -21,7 +21,7 @@ html{
 body{
     color: var(--fouth-color);
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 section{
