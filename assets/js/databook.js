@@ -4,7 +4,7 @@ let isRead = false;
 function addBook() {
   const titleInput = getData().titleInput.value;
   const authorInput = getData().authorInput.value;
-  const yearInput = getData().yearInput.value;
+  const yearInput = parseInt(getData().yearInput.value);
   const statusInput = getData().statusInput.value;
   const completed = isCompleted();
   const islikes = isLiked;
