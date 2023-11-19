@@ -29,6 +29,8 @@ document.addEventListener(RENDER_EVENT, function () {
     }
   }
 
+  
+
   const searchInput = document.getElementById("search");
   const searchButton = document.getElementById("search-btn");
   const allInner = document.querySelectorAll(".inner");

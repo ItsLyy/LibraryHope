@@ -162,7 +162,5 @@ function makeBook(books) {
   //ALL MARGE
   inner.append(topArea, bottomArea);
 
-  
-
   return inner;
 }
