@@ -95,6 +95,12 @@ function makeBook(books) {
     completeButton.setAttribute("type", "button");
     completeButton.append(completeIcon);
 
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add("fa-solid");
+    deleteIcon.classList.add("fa-x");
+    const deleteButton = document.createElement("button");
+    deleteButton.append(deleteIcon);
+
     ongoingButton.onclick = () => {
       ongoingBook(books.id);
       if (bookStatus(books.id) === "Ongoing") {
@@ -108,7 +114,11 @@ function makeBook(books) {
       completeBook(books.id);
     };
 
-    rightArea.append(ongoingButton, completeButton);
+    deleteButton.onclick = () => {
+      deleteBook(books.id);
+    };
+
+    rightArea.append(deleteButton, ongoingButton, completeButton);
 
     // BOTTOM AREA
     const likeInnerButton = document.createElement("button");
